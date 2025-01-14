@@ -29,6 +29,11 @@ class _LoginScreenState extends State<Login> {
     }
   }
 
+  void goToRegister() {
+    Navigator.pushNamed(
+        context, '/register'); // Certifique-se de que a rota existe
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +41,7 @@ class _LoginScreenState extends State<Login> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextField(
               controller: emailController,
@@ -50,6 +56,10 @@ class _LoginScreenState extends State<Login> {
             ElevatedButton(
               onPressed: login,
               child: const Text('Entrar'),
+            ),
+            TextButton(
+              onPressed: goToRegister,
+              child: const Text('Não tem conta? Registre-se aqui'),
             ),
           ],
         ),
